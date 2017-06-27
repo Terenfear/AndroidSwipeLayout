@@ -718,10 +718,14 @@ public class SwipeLayout extends FrameLayout {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        updateBottomViews();
+        if( changed ){
+            updateBottomViews();
+        }
 
-        if (mOnLayoutListeners != null) for (int i = 0; i < mOnLayoutListeners.size(); i++) {
-            mOnLayoutListeners.get(i).onLayout(this);
+        if (mOnLayoutListeners != null){
+            for (int i = 0; i < mOnLayoutListeners.size(); i++) {
+                mOnLayoutListeners.get(i).onLayout(this);
+            }
         }
     }
 
